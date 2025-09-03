@@ -1,2 +1,13 @@
-# PruebaTecnicaServir
-Este repositorio contiene el sistema web para la prueba técnica para la plaza de desarrollador Web Full Stack
+# Prueba Técnica – Starter MVC v3 (Neutral + Alerts)
+
+- .NET 8 + EF Core + SQL Server + Bootstrap
+
+## Run
+```bash
+cd src/PruebaFullstack
+dotnet restore
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add Init
+dotnet ef database update
+dotnet run
+```

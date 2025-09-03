@@ -1,0 +1,11 @@
+@model PruebaFullstack.Models.Donacion
+@{ ViewData["Title"] = "Eliminar Donación"; Layout = "_Layout"; }
+<div class="card-glass p-4">
+  <h2 class="fw-bold mb-3 text-danger"><i class="bi bi-trash"></i> Confirmar eliminación</h2>
+  <p>¿Eliminar la donación de <strong>@Model.Donante</strong> por <strong>@Model.Monto.ToString("C")</strong>?</p>
+  <form method="post" asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+    <a class="btn btn-outline-light" href="/Donacion">Cancelar</a>
+  </form>
+</div>

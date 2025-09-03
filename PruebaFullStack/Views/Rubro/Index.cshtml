@@ -1,0 +1,42 @@
+@model IEnumerable<PruebaFullstack.Models.Rubro>
+@{ ViewData["Title"] = "Rubros"; Layout = "_Layout"; var proyectos = ViewBag.Proyectos as List<PruebaFullstack.Models.Proyecto>; }
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="fw-bold">Rubros</h2>
+  <a class="btn btn-gradient" href="/Rubro/Create"><i class="bi bi-plus-circle"></i> Nuevo</a>
+</div>
+<div class="card-glass p-3 mb-3">
+  <form method="get" class="row g-2 align-items-end">
+    <div class="col-md-6">
+      <label class="form-label">Proyecto</label>
+      <select name="proyectoId" class="form-select">
+        <option value="">-- Todos los proyectos --</option>
+        @foreach (var p in proyectos)
+        {
+          <option value="@p.Id">@($"P-{p.Id:D4} - " + p.Nombre)</option>
+        }
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-outline-light"><i class="bi bi-funnel"></i> Filtrar</button>
+    </div>
+  </form>
+</div>
+<div class="card-glass p-3">
+  <div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead><tr><th>Proyecto</th><th>Rubro</th><th style="width:140px"></th></tr></thead>
+    <tbody>
+    @foreach (var r in Model){
+      <tr>
+        <td><span class="badge badge-soft">@($"P-{r.ProyectoId:D4}")</span></td>
+        <td>@r.Nombre</td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-light" href="/Rubro/Edit/@r.Id"><i class="bi bi-pencil"></i></a>
+          <a class="btn btn-sm btn-outline-danger" href="/Rubro/Delete/@r.Id"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+  </div>
+</div>
