@@ -1,0 +1,114 @@
+:root {
+    --accent: #6CB2EB;
+    --accent-2: #A5B4FC;
+    --ink: #0f172a;
+    --bg: #0b1020;
+}
+
+html, body {
+    height: 100%
+}
+
+body {
+    min-height: 100%;
+    background: linear-gradient(135deg, var(--bg) 0%, #121936 40%, #1a2233 100%);
+    color: #e7e7ea;
+    padding-bottom: 40px;
+}
+
+.navbar {
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+.navbar .nav-link {
+    color: #0b1020;
+    font-weight: 600;
+    opacity: .9
+}
+
+.navbar .nav-link:hover {
+        opacity: 1
+}
+
+a.navbar-brand {
+    font-weight: 800;
+    color: #0b1020
+}
+
+.card-glass {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    backdrop-filter: blur(6px);
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    border: none;
+    color: #111;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+.btn-gradient:hover {
+    filter: brightness(1.05)
+}
+
+.table {
+    color: #eaeaf1;
+}
+
+.table thead th {
+    border-bottom: 2px solid rgba(255,255,255,.15) !important;
+}
+
+.table td, .table th {
+    border-color: rgba(255,255,255,.08) !important;
+    vertical-align: middle;
+}
+
+.form-control, .form-select {
+    background-color: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #b9bbd1
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 .2rem rgba(108,178,235,.18);
+    border-color: var(--accent);
+}
+
+.badge-soft {
+    background: rgba(165,180,252,.18);
+    color: #182257;
+    border: 1px solid rgba(165,180,252,.35);
+}
+
+hr {
+    border-color: rgba(255,255,255,.12)
+}
+
+.footer {
+    opacity: .8
+}
+
+.alert {
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.alert-auto {
+    opacity: 1;
+    transition: opacity .5s ease, transform .5s ease;
+}
+
+.alert-auto.hide-soft {
+    opacity: 0;
+    transform: translateY(-6px);
+}

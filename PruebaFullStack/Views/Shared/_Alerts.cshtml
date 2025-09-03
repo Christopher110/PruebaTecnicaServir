@@ -1,0 +1,59 @@
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@{
+    var success = TempData["Success"] as string;
+    var error = TempData["Error"] as string;
+    var info = TempData["Info"] as string;
+    var hasModelErrors = !ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0;
+}
+<div id="alert-container" class="my-2">
+    @if (!string.IsNullOrWhiteSpace(success))
+    {
+        <div class="alert alert-success alert-dismissible fade show alert-auto" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i>@success
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (!string.IsNullOrWhiteSpace(error))
+    {
+        <div class="alert alert-danger alert-dismissible fade show alert-auto" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>@error
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (!string.IsNullOrWhiteSpace(info))
+    {
+        <div class="alert alert-info alert-dismissible fade show alert-auto" role="alert">
+            <i class="bi bi-info-circle-fill me-2"></i>@info
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (hasModelErrors)
+    {
+        <div class="alert alert-danger alert-dismissible fade show alert-auto" role="alert">
+            <div class="d-flex align-items-start">
+              <i class="bi bi-x-octagon-fill me-2 mt-1"></i>
+              <div>
+                <strong>Por favor corrige los siguientes errores:</strong>
+                <ul class="mb-0">
+                  @foreach (var err in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                  {
+                      <li>@err.ErrorMessage</li>
+                  }
+                </ul>
+              </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+</div>
+<script>
+  (() => {
+    const alerts = document.querySelectorAll('.alert-auto');
+    alerts.forEach(el => {
+      setTimeout(() => {
+        el.classList.add('hide-soft');
+        setTimeout(() => { try { new bootstrap.Alert(el).close(); } catch(e) {} }, 500);
+      }, 4500);
+    });
+  })();
+</script>

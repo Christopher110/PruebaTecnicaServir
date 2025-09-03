@@ -1,0 +1,11 @@
+@model PruebaFullstack.Models.Proyecto
+@{ ViewData["Title"] = "Eliminar Proyecto"; Layout = "_Layout"; }
+<div class="card-glass p-4">
+  <h2 class="fw-bold mb-3 text-danger"><i class="bi bi-trash"></i> Confirmar eliminación</h2>
+  <p>¿Eliminar el proyecto <strong>@Model.Nombre</strong> (<span class="badge badge-soft">@($"P-{Model.Id:D4}")</span>)?</p>
+  <form method="post" asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+    <a class="btn btn-outline-light" href="/Proyecto">Cancelar</a>
+  </form>
+</div>

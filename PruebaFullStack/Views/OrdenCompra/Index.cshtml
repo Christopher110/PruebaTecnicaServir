@@ -1,0 +1,33 @@
+@model IEnumerable<PruebaFullstack.Models.OrdenCompra>
+@{ ViewData["Title"] = "Órdenes de Compra"; Layout = "_Layout"; }
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="fw-bold">Órdenes de Compra</h2>
+  <a class="btn btn-gradient" href="/OrdenCompra/Create"><i class="bi bi-plus-circle"></i> Nueva</a>
+</div>
+<div class="card-glass p-3">
+  <div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead><tr><th>Fecha</th><th>Proveedor</th><th>Detalles</th><th>Total</th><th style="width:120px"></th></tr></thead>
+    <tbody>
+    @foreach (var o in Model){
+      var total = o.Detalles?.Sum(d => d.Monto) ?? 0;
+      <tr>
+        <td>@o.Fecha.ToString("yyyy-MM-dd")</td>
+        <td>@o.Proveedor</td>
+        <td>
+          <ul class="mb-0">
+            @foreach (var d in o.Detalles){
+              <li>@($"P-{d.ProyectoId:D4}") - @d.Rubro?.Nombre: @d.Monto.ToString("C")</li>
+            }
+          </ul>
+        </td>
+        <td>@total.ToString("C")</td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-danger" href="/OrdenCompra/Delete/@o.Id"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+  </div>
+</div>

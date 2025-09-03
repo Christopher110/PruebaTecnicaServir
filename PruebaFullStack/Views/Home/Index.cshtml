@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Inicio";
+    Layout = "_Layout";
+}
+<div class="p-4 p-md-5 card-glass">
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <h1 class="h3 fw-bold mb-2">Prueba Técnica – Demo MVC</h1>
+      <p class="mb-3">Stack: ASP.NET Core 8 MVC + EF Core + SQL Server + Bootstrap.</p>
+      <div class="d-flex gap-2">
+        <a class="btn btn-gradient" href="/Proyecto"><i class="bi bi-kanban"></i> Proyectos</a>
+        <a class="btn btn-outline-light" href="/Rubro"><i class="bi bi-tags"></i> Rubros</a>
+        <a class="btn btn-outline-light" href="/Donacion"><i class="bi bi-gift"></i> Donaciones</a>
+        <a class="btn btn-outline-light" href="/OrdenCompra"><i class="bi bi-receipt"></i> Órdenes</a>
+      </div>
+      <br />
+      <div>
+          <h1>
+              Definición del Problema
+          </h1>
+          <p>
+              Se solicita implementar un prototipo de un sistema web para la gestión de fondos, presupuesto y
+              ejecución de una organización no gubernamental, que trabaja proyectos en el área rural del país.
+              <br />
+              <br />
+              Esta entidad ha crecido mucho en los últimos años, y necesita dejar de llevar sus controles en
+              Excel y moverse a una base de datos robusta que le permita analizar cómo va la ejecución
+              monetaria de sus proyectos en relación a los fondos que ha recibido de los diferentes donantes.
+              <br />
+              <br />
+              La organización puede manejar múltiples proyectos, y sobre cada uno necesita almacenar el
+              nombre del proyecto, municipio y departamento en donde se llevará a cabo el proyecto, fecha de
+              inicio y fecha de fin del proyecto.
+              <br />
+              <br />
+              En cada proyecto los fondos se manejan utilizando diferentes rubros de presupuesto (como por
+              ejemplo alimentación, honorarios, materiales, hospedaje, etc.), y en cada proyecto debe poder
+              especificar qué rubros se utilizarán.
+              <br />
+              <br />
+              Los fondos se reciben por medio de donaciones de parte de una persona o de una organización
+              para un proyecto y rubro específico. Cuando se registra una donación se debe registrar la fecha y
+              el nombre del donante, además de cuánto dinero se asigna a determinado rubro de un proyecto.
+              Los fondos de un proyecto se ejecutan (es decir, se gastan) generando órdenes de compra, que
+              representan la erogación de ciertos fondos hacia un proveedor de bienes o servicios. Una orden
+              de compra puede consumir fondos de diferentes rubros de un proyecto.
+          </p>
+      </div>
+    </div>
+  </div>
+</div>

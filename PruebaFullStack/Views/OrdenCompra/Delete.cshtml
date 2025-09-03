@@ -1,0 +1,11 @@
+@model PruebaFullstack.Models.OrdenCompra
+@{ ViewData["Title"] = "Eliminar Orden de Compra"; Layout = "_Layout"; }
+<div class="card-glass p-4">
+  <h2 class="fw-bold mb-3 text-danger"><i class="bi bi-trash"></i> Confirmar eliminación</h2>
+  <p>¿Eliminar la orden de compra <strong>#@Model.Id</strong> del proveedor <strong>@Model.Proveedor</strong>?</p>
+  <form method="post" asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button class="btn btn-danger"><i class="bi bi-trash"></i> Eliminar</button>
+    <a class="btn btn-outline-light" href="/OrdenCompra">Cancelar</a>
+  </form>
+</div>

@@ -1,0 +1,45 @@
+@model PruebaFullstack.Models.Donacion
+@{ ViewData["Title"] = "Nueva Donación"; Layout = "_Layout"; var proyectos = ViewBag.Proyectos as List<PruebaFullstack.Models.Proyecto>; var rubros = ViewBag.Rubros as List<PruebaFullstack.Models.Rubro>; }
+<div class="card-glass p-4">
+  <h2 class="fw-bold mb-3">Nueva Donación</h2>
+  <form method="post" asp-action="Create">
+    <div class="text-danger mb-2">@Html.ValidationSummary()</div>
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label class="form-label">Fecha</label>
+        <input asp-for="Fecha" type="date" class="form-control" />
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Proyecto</label>
+        <select asp-for="ProyectoId" class="form-select">
+          <option value="">-- Seleccione --</option>
+          @foreach (var p in proyectos)
+          { <option value="@p.Id">@($"P-{p.Id:D4} - " + p.Nombre)</option> }
+        </select>
+        <span asp-validation-for="ProyectoId" class="text-danger"></span>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Rubro (opcional)</label>
+        <select asp-for="RubroId" class="form-select">
+          <option value="">-- Ninguno --</option>
+          @foreach (var r in rubros)
+          { <option value="@r.Id">@r.Nombre</option> }
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Donante</label>
+        <input asp-for="Donante" class="form-control" placeholder="Nombre del donante" />
+        <span asp-validation-for="Donante" class="text-danger"></span>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Monto</label>
+        <input asp-for="Monto" class="form-control" placeholder="0.00" />
+        <span asp-validation-for="Monto" class="text-danger"></span>
+      </div>
+    </div>
+    <div class="mt-3 d-flex gap-2">
+      <button class="btn btn-gradient"><i class="bi bi-check2-circle"></i> Guardar</button>
+      <a class="btn btn-outline-light" href="/Donacion">Volver</a>
+    </div>
+  </form>
+</div>

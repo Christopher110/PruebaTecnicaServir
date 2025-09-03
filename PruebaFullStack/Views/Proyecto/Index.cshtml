@@ -1,0 +1,28 @@
+@model IEnumerable<PruebaFullstack.Models.Proyecto>
+@{ ViewData["Title"] = "Proyectos"; Layout = "_Layout"; }
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="fw-bold">Proyectos</h2>
+  <a class="btn btn-gradient" href="/Proyecto/Create"><i class="bi bi-plus-circle"></i> Nuevo</a>
+</div>
+<div class="card-glass p-3">
+  <div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead><tr><th>Código</th><th>Nombre</th><th>Ubicación</th><th>Inicio</th><th>Fin</th><th style="width:160px"></th></tr></thead>
+    <tbody>
+    @foreach (var p in Model){
+      <tr>
+        <td><span class="badge badge-soft">@($"P-{p.Id:D4}")</span></td>
+        <td>@p.Nombre</td>
+        <td>@p.Municipio, @p.Departamento</td>
+        <td>@p.FechaInicio.ToString("yyyy-MM-dd")</td>
+        <td>@(p.FechaFin?.ToString("yyyy-MM-dd") ?? "-")</td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-light" href="/Proyecto/Edit/@p.Id"><i class="bi bi-pencil"></i></a>
+          <a class="btn btn-sm btn-outline-danger" href="/Proyecto/Delete/@p.Id"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+  </div>
+</div>
